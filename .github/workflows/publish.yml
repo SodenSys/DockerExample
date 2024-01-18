@@ -24,4 +24,4 @@ jobs:
           dotnet build
 
       - name: Build docker image
-        run: docker build -t sodensys/dockerexample
+        run: docker build -t sodensys/dockerexample .
