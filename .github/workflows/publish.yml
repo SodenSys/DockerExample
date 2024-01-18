@@ -23,5 +23,10 @@ jobs:
           dotnet restore
           dotnet build
 
-      - name: Build docker image
-        run: docker build -t sodensys/dockerexample .
+      - name: Login to dockerhub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME}} -p ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push docker image
+        run: |
+          docker build -t sodensys/dockerexample .
+          docker push sodensys/dockerexample
